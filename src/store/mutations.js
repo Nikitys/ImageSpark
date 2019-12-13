@@ -1,0 +1,3 @@
+export const SAVE_USERS_DATA = "SAVE_USERS_DATA";
+export const SORT_USERS_DATA = "SORT_USERS_DATA";
+export const SEARCH_USERS = "SEARCH_USERS";
