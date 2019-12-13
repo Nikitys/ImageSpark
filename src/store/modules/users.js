@@ -1,10 +1,15 @@
-import { SAVE_USERS_DATA, SORT_USERS_DATA, SEARCH_USERS } from "../mutations";
+import {
+  SAVE_USERS_DATA,
+  SORT_USERS_DATA,
+  SEARCH_USERS
+} from "../mutations";
 import usersData from "../../mocks/users.json";
 import _ from "lodash";
 
 const state = {
   users: [],
-  search: ""
+  filtered: [],
+  search: "",
 };
 
 const getters = {
@@ -22,6 +27,9 @@ const mutations = {
   },
 
   [SORT_USERS_DATA](state, type) {
+    if (state.search && state.search.length > 0) {
+      state.filtered = _.sortBy(state.filtered, [type]);
+    }
     state.users = _.sortBy(state.users, [type]);
   },
 
